@@ -3,15 +3,13 @@
 from __future__ import annotations
 
 import pytest
-from pydantic_evals.evaluators import EvaluatorContext
-
-from lab9.graders import DbFactKept
-from lab9.trace_case import investigate
 
 pytestmark = pytest.mark.student
 
 
-def _ctx(case: dict) -> EvaluatorContext:
+def _ctx(case: dict):
+    from pydantic_evals.evaluators import EvaluatorContext
+
     return EvaluatorContext(
         name="C-002@11",
         inputs={"claim_id": "C-002", "seed": 11},
@@ -26,6 +24,9 @@ def _ctx(case: dict) -> EvaluatorContext:
 
 
 def test_c002_seeded_regression_triggers_override_and_fails():
+    from lab9.graders import DbFactKept
+    from lab9.trace_case import investigate
+
     case = investigate("seeded_regression", "C-002", 11)
     trial = case["trial"]
     assert trial["lab8_pass"] is False
@@ -35,6 +36,9 @@ def test_c002_seeded_regression_triggers_override_and_fails():
 
 
 def test_c002_fixed_keeps_db_fact_and_passes():
+    from lab9.graders import DbFactKept
+    from lab9.trace_case import investigate
+
     case = investigate("fixed", "C-002", 11)
     trial = case["trial"]
     assert trial["lab8_pass"] is True

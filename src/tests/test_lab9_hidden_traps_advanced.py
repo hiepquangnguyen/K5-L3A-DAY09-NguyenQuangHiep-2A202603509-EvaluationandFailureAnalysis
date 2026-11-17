@@ -6,8 +6,6 @@ import copy
 
 import pytest
 
-from lab9 import gate
-
 pytestmark = pytest.mark.student
 
 ROWS = [
@@ -32,6 +30,8 @@ def _report(rows, metrics, failures=()):
 
 
 def test_advanced_flags_duplicate_rows_and_green_failures_and_slice_relabel():
+    from lab9 import gate
+
     base = _report(copy.deepcopy(ROWS), {"pass_rate": 1.0})
     assert gate.integrity_check(base, base, SPEC, SPEC) == []
 
