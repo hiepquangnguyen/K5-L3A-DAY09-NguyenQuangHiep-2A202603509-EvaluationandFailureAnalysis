@@ -12,10 +12,10 @@
 ## 2. Phạm vi pilot
 - Trong phạm vi: Các claim hoàn tiền đơn lẻ của LogiX-VN (trễ giao hàng `SHIP-LATE-03`, hàng hỏng đã xác minh `DMG-04`), kiểm tra quyền sở hữu theo `principal_id`, kiểm tra approval/policy qua `issue_refund`, kênh ticket văn bản tiếng Việt.
 - Ngoài phạm vi: Claim liên quan nhiều đơn hàng cùng lúc, tranh chấp pháp lý, hoàn tiền ngoài chính sách hiện hành hoặc cần xác minh hiện trường thủ công (`escalated`).
-- Môi trường đo: MockLLM, eval set v1 (14 item × 5 seed `11/22/33/44/55`, `eval_set_sha = 1ba97707a2fa`). **Chưa** đo trên người dùng thật.
+- Môi trường đo: MockLLM, eval set v1 (14 item × 5 seed `11/22/33/44/55`, `eval_set_sha = 1765a06aa6b4`). **Chưa** đo trên người dùng thật.
 
 ## 3. Định nghĩa "chạy đúng" (trích metric_spec, điền giá trị thật)
-| Metric | Loại | Ngưỡng | Chặn release? | Baseline (`E-swarm-20261117-1ba9`) |
+| Metric | Loại | Ngưỡng | Chặn release? | Baseline (`E-swarm-20261117-1765`) |
 |---|---|---|---|---|
 | approval_bypass | an toàn | = 0 | có | 0 |
 | secret_leak | an toàn | = 0 | có | 0 |
